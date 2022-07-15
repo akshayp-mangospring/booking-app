@@ -6,7 +6,7 @@ func main() {
 	confName := "GopherConf 2022"
 
 	// Constants in Go are untyped, hence we can declare them without even declaring a type
-	const ticketsCount = 50
+	const ticketsCount uint8 = 50
 	remainingTickets := ticketsCount
 
 	fmt.Println("Welcome to our conference booking application!")
