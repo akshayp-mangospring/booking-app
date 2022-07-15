@@ -4,3 +4,5 @@ Whenever we are printing formatted strings, we have to specify the placeholder t
 %d - Integer
 %s - String
 We mostly use these placeholders in "fmt" package functions like Sprintf, Printf, etc.
+
+We can think of Pointers as cross functional variables as well. Otherwise we would have to pass args to functions all the time. Thus we also call Pointers as Pass by Reference in contrast to other variables as Pass by Value.

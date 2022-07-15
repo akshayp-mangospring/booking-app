@@ -16,7 +16,7 @@ func main() {
 	// Inifinte loop until all tickets are booked
 	for {
 		var name string
-		var count int
+		var count uint8
 
 		fmt.Println("Enter Name:")
 		fmt.Scanf("%s", &name)
@@ -51,20 +51,20 @@ func getMarketingLine(s string) string {
 	return fmt.Sprintf("The only stop to get your %s tickets", s)
 }
 
-func bookTicket(name string, count int, leftTickets *uint8) {
+func bookTicket(name string, count uint8, leftTickets *uint8) {
 	// Type conversion from `uint8` to `int`
 	if isZero(int(*leftTickets)) {
 		printNoTicketsLeft()
 		return
 	}
 
-	if count > int(*leftTickets) {
+	if count > *leftTickets {
 		fmt.Printf("%s booked the last %d tickets out of %d tickets requested. 0 tickets left.\n", name, *leftTickets, count)
 		*leftTickets = 0
 		printNoTicketsLeft()
 		return
 	}
 
-	*leftTickets = *leftTickets - uint8(count)
+	*leftTickets = *leftTickets - count
 	fmt.Printf("%s booked %d tickets. %d tickets left\n", name, count, *leftTickets)
 }
