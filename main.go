@@ -13,6 +13,7 @@ func main() {
 	fmt.Println(getMarketingLine(confName))
 	fmt.Printf("We have %d tickets left. Book quickly to get your spot!\n", remainingTickets)
 
+	// Inifinte loop until all tickets are booked
 	for {
 		var name string
 		var count int
@@ -22,8 +23,10 @@ func main() {
 		fmt.Println("Enter Count:")
 		fmt.Scanf("%d", &count)
 
+		// Use pointers to decrement count of remaining tickets
 		bookTicket(name, count, &remainingTickets)
 
+		// Breaks the infinite loop
 		if isZero(int(remainingTickets)) {
 			break
 		}
