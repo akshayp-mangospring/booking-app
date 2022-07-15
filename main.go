@@ -27,6 +27,14 @@ func main() {
 	bookTicket("Nivedita", 5, &remainingTickets)
 }
 
+func isZero(count int) bool {
+	return count == 0
+}
+
+func printNoTicketsLeft() {
+	fmt.Println("Conference is sold out! No more tickets left.")
+}
+
 func getMarketingLine(s string) string {
 	/*
 		Sprintf is actually used to store a formatted string into a var
@@ -38,8 +46,16 @@ func getMarketingLine(s string) string {
 }
 
 func bookTicket(name string, count uint8, leftTickets *uint8) {
-	if *leftTickets == 0 {
-		fmt.Println("Conference is sold out! No more tickets left.")
+	// Type conversion from `uint8` to `int`
+	if isZero(int(*leftTickets)) {
+		printNoTicketsLeft()
+		return
+	}
+
+	if count > *leftTickets {
+		fmt.Printf("%s booked the last %d tickets out of %d tickets requested. 0 tickets left.\n", name, *leftTickets, count)
+		*leftTickets = 0
+		printNoTicketsLeft()
 		return
 	}
 
