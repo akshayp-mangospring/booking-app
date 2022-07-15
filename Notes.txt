@@ -1,0 +1,6 @@
+Whenever we are printing formatted strings, we have to specify the placeholder type in which our variable/constant will be printed. Some of the most used placeholders are:
+%T - Type
+%v - Value
+%d - Integer
+%s - String
+We mostly use these placeholders in "fmt" package functions like Sprintf, Printf, etc.

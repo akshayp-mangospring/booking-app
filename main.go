@@ -15,8 +15,11 @@ func main() {
 }
 
 func getMarketingLine(s string) string {
-	// Sprintf is actually used to store a formatted string into a var
-	// It doesn't actually print a string, it returns a string which can be printed later
-	// Thus it can effectively be used as a return type for functions
+	/*
+		Sprintf is actually used to store a formatted string into a var
+		It doesn't actually print a string, it returns a string which can be printed later
+		Thus it can effectively be used as a return type for functions
+	*/
+
 	return fmt.Sprintf("The only stop to get your %s tickets", s)
 }
