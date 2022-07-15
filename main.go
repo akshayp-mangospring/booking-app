@@ -13,18 +13,21 @@ func main() {
 	fmt.Println(getMarketingLine(confName))
 	fmt.Printf("We have %d tickets left. Book quickly to get your spot!\n", remainingTickets)
 
-	bookTicket("Akshay", 5, &remainingTickets)
-	bookTicket("Sourabh", 5, &remainingTickets)
-	bookTicket("Nivedita", 5, &remainingTickets)
-	bookTicket("Akshay", 5, &remainingTickets)
-	bookTicket("Sourabh", 5, &remainingTickets)
-	bookTicket("Nivedita", 5, &remainingTickets)
-	bookTicket("Akshay", 5, &remainingTickets)
-	bookTicket("Sourabh", 5, &remainingTickets)
-	bookTicket("Nivedita", 5, &remainingTickets)
-	bookTicket("Akshay", 5, &remainingTickets)
-	bookTicket("Sourabh", 5, &remainingTickets)
-	bookTicket("Nivedita", 5, &remainingTickets)
+	for {
+		var name string
+		var count int
+
+		fmt.Println("Enter Name:")
+		fmt.Scanf("%s", &name)
+		fmt.Println("Enter Count:")
+		fmt.Scanf("%d", &count)
+
+		bookTicket(name, count, &remainingTickets)
+
+		if isZero(int(remainingTickets)) {
+			break
+		}
+	}
 }
 
 func isZero(count int) bool {
@@ -45,20 +48,20 @@ func getMarketingLine(s string) string {
 	return fmt.Sprintf("The only stop to get your %s tickets", s)
 }
 
-func bookTicket(name string, count uint8, leftTickets *uint8) {
+func bookTicket(name string, count int, leftTickets *uint8) {
 	// Type conversion from `uint8` to `int`
 	if isZero(int(*leftTickets)) {
 		printNoTicketsLeft()
 		return
 	}
 
-	if count > *leftTickets {
+	if count > int(*leftTickets) {
 		fmt.Printf("%s booked the last %d tickets out of %d tickets requested. 0 tickets left.\n", name, *leftTickets, count)
 		*leftTickets = 0
 		printNoTicketsLeft()
 		return
 	}
 
-	*leftTickets = *leftTickets - count
+	*leftTickets = *leftTickets - uint8(count)
 	fmt.Printf("%s booked %d tickets. %d tickets left\n", name, count, *leftTickets)
 }
