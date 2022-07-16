@@ -20,7 +20,7 @@ func main() {
 		fmt.Println("Enter Name:")
 		fmt.Scanf("%s", &name)
 
-		if len(name) < 2 {
+		if utils.IsNameValid(name) {
 			fmt.Println("Invalid name")
 			continue
 		}
@@ -28,7 +28,7 @@ func main() {
 		fmt.Println("Enter Count:")
 		fmt.Scanf("%d", &count)
 
-		if count <= 0 || count > 255 {
+		if utils.IsOutOfRange(0, 255, int(count)) {
 			fmt.Println("Invalid Count")
 			continue
 		}
