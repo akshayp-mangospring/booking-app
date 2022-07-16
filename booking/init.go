@@ -4,14 +4,14 @@ package booking
 
 // All fields inside an exported struct needs to be exported
 type Conf struct {
-	Tickets uint8
 	Name    string
+	Tickets uint8
 }
 
-func Init(c uint8, n string) Conf {
+func Init(n string, c uint8) Conf {
 	// Usage of Structs for maintaining data
 	return Conf{
-		Tickets: c,
 		Name:    n,
+		Tickets: c,
 	}
 }

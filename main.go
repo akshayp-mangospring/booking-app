@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	conf := booking.Init(50, "GopherConf 2022")
+	conf := booking.Init("GopherConf 2022", 50)
 
 	fmt.Println(booking.GetMarketingLine(conf.Name))
 	fmt.Printf("We have %d tickets left. Book quickly to get your spot!\n", conf.Tickets)
