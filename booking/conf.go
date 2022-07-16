@@ -6,11 +6,11 @@ package booking
 type Conf struct {
 	Name    string
 	Tickets uint8
-	names   []string
+	users   []User
 }
 
 // Attach a method to a struct
 // These are also called as Receiver functions
-func (c *Conf) GetTicketBookers() []string {
-	return c.names
+func (c *Conf) GetConfTickets() []User {
+	return c.users
 }

@@ -14,22 +14,21 @@ func main() {
 
 	// Inifinte loop until all tickets are booked
 	for {
-		var name string
-		var count uint8
+		user := booking.User{}
 
-		_, nameErr := booking.GetUserName(&name)
+		_, nameErr := booking.GetUserName(&user.Name)
 		if nameErr != nil {
 			fmt.Println(nameErr)
 			continue
 		}
 
-		_, countErr := booking.GetTicketCount(&count)
+		_, countErr := booking.GetTicketCount(&user.Tickets)
 		if countErr != nil {
 			fmt.Println(countErr)
 			continue
 		}
 
-		booking.BookTicket(name, count, &conf)
+		booking.BookTicket(user.Name, user.Tickets, &conf)
 
 		// Breaks the infinite loop
 		if utils.IsZero(int(conf.Tickets)) {
@@ -37,9 +36,9 @@ func main() {
 		}
 	}
 
-	fmt.Print("Ticket Bookers: ")
-	for _, v := range conf.GetTicketBookers() {
-		fmt.Printf("%v\t", v)
+	fmt.Print("Ticket Holders: ")
+	for _, v := range conf.GetConfTickets() {
+		fmt.Printf("%v: %v tickets\t", v.Name, v.Tickets)
 	}
 	fmt.Println()
 }

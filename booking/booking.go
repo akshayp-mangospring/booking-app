@@ -15,13 +15,13 @@ func BookTicket(name string, count uint8, c *Conf) {
 
 	if count > c.Tickets {
 		fmt.Printf("%s booked the last %d tickets out of %d tickets requested. 0 tickets left.\n", name, c.Tickets, count)
+		c.users = append(c.users, User{Name: name, Tickets: c.Tickets})
 		c.Tickets = 0
-		c.names = append(c.names, name)
 		printNoTicketsLeft()
 		return
 	}
 
 	c.Tickets = c.Tickets - count
-	c.names = append(c.names, name)
+	c.users = append(c.users, User{Name: name, Tickets: count})
 	fmt.Printf("%s booked %d tickets. %d tickets left\n", name, count, c.Tickets)
 }
