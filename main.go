@@ -28,7 +28,13 @@ func main() {
 			continue
 		}
 
-		booking.BookTicket(user.Name, user.Tickets, &conf)
+		_, emailErr := booking.GetUserEmail(&user.Email)
+		if emailErr != nil {
+			fmt.Println(emailErr)
+			continue
+		}
+
+		booking.BookTicket(user.Name, user.Tickets, user.Email, &conf)
 
 		// Breaks the infinite loop
 		if utils.IsZero(int(conf.Tickets)) {
