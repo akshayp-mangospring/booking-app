@@ -29,4 +29,6 @@ func main() {
 			break
 		}
 	}
+
+	fmt.Printf("Ticket Bookers: %v\n", conf.GetTicketBookers())
 }
