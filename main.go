@@ -17,19 +17,11 @@ func main() {
 		var name string
 		var count uint8
 
-		fmt.Println("Enter Name:")
-		fmt.Scanf("%s", &name)
-
-		if utils.IsNameValid(name) {
-			fmt.Println("Invalid name")
+		if booking.CheckAndAcceptUserName(&name) {
 			continue
 		}
 
-		fmt.Println("Enter Count:")
-		fmt.Scanf("%d", &count)
-
-		if utils.IsOutOfRange(0, 255, int(count)) {
-			fmt.Println("Invalid Count")
+		if booking.CheckAndAcceptTicketCount(&count) {
 			continue
 		}
 

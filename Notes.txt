@@ -8,3 +8,5 @@ We mostly use these placeholders in "fmt" package functions like Sprintf, Printf
 We can think of Pointers as cross functional variables as well. Otherwise we would have to pass args to functions all the time. Thus we also call Pointers as Pass by Reference in contrast to other variables as Pass by Value.
 
 Go gives an error for unused variables, but doesn't give an error for unused functions. It's strange. But we have to keep track of unused functions.
+Similar to JS - variables, consts are not hoisted in Go, but functions are.
+Btw, the Code editor is so much helpful in writing Go programs. It shows errors, improvements instantly. It works like a charm.

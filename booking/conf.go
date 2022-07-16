@@ -10,6 +10,7 @@ type Conf struct {
 }
 
 // Attach a method to a struct
-func (c Conf) GetTicketBookers() []string {
+// These are also called as Receiver functions
+func (c *Conf) GetTicketBookers() []string {
 	return c.names
 }
