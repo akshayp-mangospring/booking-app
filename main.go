@@ -34,7 +34,7 @@ func main() {
 			continue
 		}
 
-		booking.BookTicket(user.Name, user.Tickets, user.Email, &conf)
+		booking.BookTicket(user, &conf)
 
 		// Breaks the infinite loop
 		if utils.IsZero(int(conf.Tickets)) {
