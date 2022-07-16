@@ -17,11 +17,15 @@ func main() {
 		var name string
 		var count uint8
 
-		if booking.CheckAndAcceptUserName(&name) {
+		_, nameErr := booking.GetUserName(&name)
+		if nameErr != nil {
+			fmt.Println(nameErr)
 			continue
 		}
 
-		if booking.CheckAndAcceptTicketCount(&count) {
+		_, countErr := booking.GetTicketCount(&count)
+		if countErr != nil {
+			fmt.Println(countErr)
 			continue
 		}
 

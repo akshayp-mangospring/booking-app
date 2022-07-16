@@ -10,3 +10,5 @@ We can think of Pointers as cross functional variables as well. Otherwise we wou
 Go gives an error for unused variables, but doesn't give an error for unused functions. It's strange. But we have to keep track of unused functions.
 Similar to JS - variables, consts are not hoisted in Go, but functions are.
 Btw, the Code editor is so much helpful in writing Go programs. It shows errors, improvements instantly. It works like a charm.
+
+Just like package level functions we can also have package level variables & constants as well. But local variables are much more preferred, it helps in quicker garbage collection.

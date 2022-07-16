@@ -2,27 +2,26 @@ package booking
 
 import (
 	"booking-app/utils"
+	"errors"
 	"fmt"
 )
 
-func CheckAndAcceptUserName(name *string) bool {
+func GetUserName(name *string) (string, error) {
 	fmt.Println("Enter Name:")
 	fmt.Scanf("%s", name)
 
 	if utils.IsNameValid(*name) {
-		fmt.Println("Invalid Name. Try again")
-		return true
+		return *name, errors.New("Invalid Name. Try again")
 	}
-	return false
+	return *name, nil
 }
 
-func CheckAndAcceptTicketCount(count *uint8) bool {
+func GetTicketCount(count *uint8) (uint8, error) {
 	fmt.Println("Enter Count:")
 	fmt.Scanf("%d", count)
 
 	if utils.IsOutOfRange(0, 255, int(*count)) {
-		fmt.Println("Invalid Count. Try again")
-		return true
+		return *count, errors.New("Invalid Count. Try again")
 	}
-	return false
+	return *count, nil
 }
