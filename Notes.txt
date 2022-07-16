@@ -12,3 +12,9 @@ Similar to JS - variables, consts are not hoisted in Go, but functions are.
 Btw, the Code editor is so much helpful in writing Go programs. It shows errors, improvements instantly. It works like a charm.
 
 Just like package level functions we can also have package level variables & constants as well. But local variables are much more preferred, it helps in quicker garbage collection.
+Just like we can export functions we can also export constants, or variables outside a package and make it Global in scope, by just capitalising the first letter of the var/const.
+
+Maps in Go are basically a way to store key:value data. But the types of keys or values need to be all the same.
+E.g.: map[string]int creates a Map of string keys and int values. All keys need to have string datatype. All values need to have int datatype.
+A shortcoming of Maps is that we can't mix datatypes of each key or each value. We can't mix them.
+In such cases we can use Structs. We can mix datatypes, even attach methods on a Struct to access/modify data of that Struct.
