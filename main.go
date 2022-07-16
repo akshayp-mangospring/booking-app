@@ -19,8 +19,19 @@ func main() {
 
 		fmt.Println("Enter Name:")
 		fmt.Scanf("%s", &name)
+
+		if len(name) < 2 {
+			fmt.Println("Invalid name")
+			continue
+		}
+
 		fmt.Println("Enter Count:")
 		fmt.Scanf("%d", &count)
+
+		if count <= 0 || count > 255 {
+			fmt.Println("Invalid Count")
+			continue
+		}
 
 		booking.BookTicket(name, count, &conf)
 
@@ -30,5 +41,9 @@ func main() {
 		}
 	}
 
-	fmt.Printf("Ticket Bookers: %v\n", conf.GetTicketBookers())
+	fmt.Print("Ticket Bookers: ")
+	for _, v := range conf.GetTicketBookers() {
+		fmt.Printf("%v\t", v)
+	}
+	fmt.Println()
 }
